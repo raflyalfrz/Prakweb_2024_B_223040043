@@ -10,7 +10,7 @@ class Produk
         $waktuMain,
         $tipe;
 
-    public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $jmlHalaman = 0, $waktuMain = 0, $tipe = "tipe")
+    public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $jmlHalaman = 0, $waktuMain = 0, $tipe = 0)
     {
         $this->judul = $judul;
         $this->penulis = $penulis;
