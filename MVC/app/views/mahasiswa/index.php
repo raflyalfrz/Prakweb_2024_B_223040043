@@ -6,20 +6,38 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-lg-6">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
                 Tambah Data Mahasiswa
             </button>
-            <br><br>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <form action="<?= BASEURL; ?>/mahasiswa/cari" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="cari mahasiswa.." name="keyword" id="keyword" autocomplete="off">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
             <h3>Daftar Mahasiswa</h3>
             <ul class="list-group">
                 <?php foreach ($data['mhs'] as $mhs) : ?>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <?= $mhs['nama']; ?>
                         <div>
-                            <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge text-bg-primary">Detail</a>
-                            <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge text-bg-danger" onclick="return confirm('yakin?');">hapus</a>
+                            <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge text-bg-primary" style="text-decoration: none;">Detail</a>
+                            <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="badge text-bg-success tampilModalUbah" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id']; ?>">Ubah</a>
+                            <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge text-bg-danger" style="text-decoration: none;" onclick="return confirm('yakin?');">Hapus</a>
 
                         </div>
                     </li>
@@ -53,12 +71,13 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com">
+                        <input type="email" class="form-control" id="email" name="email" autocomplete="off" placeholder="email@example.com">
                     </div>
 
                     <div class="mb-3">
                         <label for="jurusan" class="form-label">Jurusan</label>
                         <select class="form-control" id="jurusan" name="jurusan">
+                            <option value="" selected disabled>Pilih Jurusan</option>
                             <option value="Teknik Informatika">Teknik Informatika</option>
                             <option value="Teknik Mesin">Teknik Mesin</option>
                             <option value="Teknik Industri">Teknik Industri</option>
