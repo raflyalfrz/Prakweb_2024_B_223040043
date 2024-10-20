@@ -18,7 +18,9 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <?= $mhs['nama']; ?>
                         <div>
-                            <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="btn btn-primary btn-sm">Detail</a>
+                            <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge text-bg-primary">Detail</a>
+                            <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge text-bg-danger" onclick="return confirm('yakin?');">hapus</a>
+
                         </div>
                     </li>
                 <?php endforeach; ?>
